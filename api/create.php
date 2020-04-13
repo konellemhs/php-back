@@ -1,6 +1,8 @@
 <?php
-
-require '../src/services/UserService.php';
+include './src/config/dbc.php';
+include './src/services/UserService.php';
+include './src/repository/UserRepository.php';
+include './src/models/User.php';
 
     $userService = new UserService;
 

@@ -1,6 +1,8 @@
 <?php
-
-require '../src/repository/UserRepository.php';
+include './src/config/dbc.php';
+include './src/services/UserService.php';
+include './src/repository/UserRepository.php';
+include './src/models/User.php';
 
 $userRepository = new UserRepository;
 

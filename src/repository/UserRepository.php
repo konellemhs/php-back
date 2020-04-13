@@ -9,7 +9,8 @@ class UserRepository
 
     public function __construct()
     {
-        $this->pdo = new DBC;
+        $dbc = new DBC;
+        $this->pdo = $dbc->getPDO();
     }
 
     /**
@@ -21,9 +22,9 @@ class UserRepository
     {
         $sql = "INSERT INTO users (name,phone,email) VALUES (:name, :phone, :email)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':name', $this->name);
-        $stmt->bindValue(':phone', $this->phone);
-        $stmt->bindValue(':email', $this->email);
+        $stmt->bindValue(':name', $user->getName());
+        $stmt->bindValue(':phone', $user->getPhone());
+        $stmt->bindValue(':email', $user->getEmail());
 
         return $stmt->execute() ? false : true;
     }

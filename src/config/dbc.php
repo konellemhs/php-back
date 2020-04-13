@@ -1,7 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 
 class DBC {
@@ -18,11 +15,8 @@ class DBC {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
-
-    /**
-     * @return PDO
-     */
-    public function __construct()
+   
+    public function getPDO()
     {
         $dsn = "mysql:host=$this->host;port=$this->port;dbname=$this->db;charset=$this->charset";
 
