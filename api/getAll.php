@@ -1,9 +1,10 @@
 <?php
 
-require '../model/User.php';
+require '../src/repository/UserRepository.php';
 
+$userRepository = new UserRepository;
 
-$users = User::getAll();
+$users = $userRepository->getAll();
 
 if (!empty($users)) {
 
